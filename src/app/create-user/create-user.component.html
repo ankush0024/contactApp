@@ -1,0 +1,25 @@
+<div >
+<button  class="btn btn-primary btnHomepage1 btnUser1" [routerLink]="'/'">Back</button>
+<br>
+<br>
+
+<form class="container formUser1"  #userForm="ngForm" (ngSubmit)="submitF(userForm)">
+  <div class="form-group">
+    <label  for="exampleInputEmail1">Name</label>
+    <input  type="text" class="form-control inputUser1" id="exampleInputEmail1" #name="ngModel" name="name" [(ngModel)]="user.name" required  aria-describedby="emailHelp" placeholder="Enter name">
+    <div *ngIf="name.touched&&name.invalid">
+      <div *ngIf="name.errors.required"><small id="emailHelp" class="form-text text-muted">name is required</small></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Job</label>
+    <input  type="text" class="form-control inputUser1" id="exampleInputPassword1" #job="ngModel" name="job" [(ngModel)]="user.job" required placeholder="Enter job">
+    <div *ngIf="job.touched&&job.invalid">
+      <div *ngIf="job.errors.required"><small id="emailHelp" class="form-text text-muted">job is required</small></div>
+    </div>
+  </div>
+ <br>
+  <button  type="submit" [disabled]="userForm.invalid" class="btn btn-primary btnUser2">Submit</button>
+</form>
+</div>
+

@@ -1,0 +1,46 @@
+<h1  class="h1Homepage1">Contact Page</h1>
+
+<div class="container">
+	<button class="btn btn-primary btnHomepage1" [routerLink]="'/createuser'">Create User&nbsp;&nbsp;<i
+			class="fa fa-user" aria-hidden="true"></i></button>
+	<br><br>&nbsp;&nbsp;<span style="float:right;" class="spanHomepage1"><label>Sort by first name</label>&nbsp;&nbsp;
+		<select [(ngModel)]="sortBy" (change)="sortContact()">
+			<option value="AZ">A-Z</option>
+			<option value="ZA">Z-A</option>
+		</select></span>
+	<br><br>
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-image">
+				<thead>
+					<tr>
+						<th scope="col">S. No.</th>
+						<th scope="col">First name</th>
+						<th scope="col">Last Name</th>
+						<th scope="col">Image</th>
+						<th scope="col">Delete</th>
+						<th scope="col">Details</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of contactList|orderBy: 'first_name' : reverse;index as i">
+						<td scope="row">{{i+1}}</td>
+						<td>{{item.first_name}}</td>
+						<td>{{item.last_name}}</td>
+						<td class="w-25">
+							<img [src]="item.avatar" />
+						</td>
+						<td>
+							<button class="btn btn-primary btnHomepage1" (click)="deleteUser(item.id)">delete&nbsp;<i
+									class="fa fa-trash-o"></i></button>
+						</td>
+						<td>
+							<button class="btn btn-primary btnHomepage1"
+								(click)="navigateToContact(item.id);">details</button>
+						</td>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

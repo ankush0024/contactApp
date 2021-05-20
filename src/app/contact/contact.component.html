@@ -1,0 +1,13 @@
+<div class="container">
+  <button class="btn btn-primary btnHomepage1" [routerLink]="'/'">Back</button>
+  <br><br>
+  <div *ngIf="contactData" class="card divContact1">
+    <img class="card-img-top" [src]="contactData.avatar?contactData.avatar:''" alt="user image">
+    <div class="card-body">
+      <h5 class="card-title">{{contactData.first_name?contactData.first_name:''}}
+        {{contactData.last_name?contactData.last_name:''}}</h5>
+      <p class="card-text">{{contactData.email?contactData.email:''}}.</p>
+    </div>
+  </div>
+
+</div>
